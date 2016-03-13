@@ -1,0 +1,95 @@
+<html>
+<head>
+  <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" /> 
+  
+  <title>Babylon js sample code </title>
+  <script src="babylon.js"></script>
+
+  <style>
+     html, body {
+     overflow: hidden;
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     }
+
+     #renderCanvas {
+     width: 100%;
+     height: 100%;
+     touch-action: none;
+     }
+  </style>
+</head>
+
+<body>
+  <canvas id="renderCanvas"></canvas>
+     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script> 
+  <script>
+    var canvas = document.getElementById("renderCanvas");
+    var engine = new BABYLON.Engine(canvas, true);
+
+    BABYLON.SceneLoader.Load("Espilit/", "espilit.babylon", engine, function(scene){
+       scene.activeCamera.attachControl(canvas);
+       
+       engine.runRenderLoop(function (){
+         scene.render();
+       });
+    });
+
+   //    $(function() {
+   //        $('body').keydown(function(e) {
+   //              var e = jQuery.Event("keydown");
+   //        e.which = 38; // # Some key code value
+   //        e.keyCode = 38;
+   //        $("body").trigger(e);
+   //        });
+   // })
+  window.addEventListener("gamepadconnected", function(e) {
+
+  console.log("Gamepad connected", e.gamepad);
+
+
+});
+
+
+  setTimeout(function (){
+    for(var i = 0; i<10; i++) {
+          var e = new Event("keydown");
+  //e.key="";    // just enter the char you want to send 
+  e.keyCode=38;
+  e.which=e.keyCode;
+  e.altKey=false;
+  e.ctrlKey=true;
+  e.shiftKey=false;
+  e.metaKey=false;
+  e.bubbles=true;
+  window.dispatchEvent(e);
+  console.log(e)
+  }}, 5000)
+
+ window.addEventListener('devicemotion', function (e) {
+        // setTimeout(function(){
+        //     debugger;
+        // }, 5000)
+
+        if(e.acceleration.x || e.acceleration.y || e.acceleration.z) {
+           whiteboard.emit('keydown', e.acceleration.y); 
+           //console.log(e);
+        }
+    });
+
+
+
+
+    // Resize
+    window.addEventListener("resize", function(){
+       engine.resize();
+    });
+  </script>
+
+</body>
+
+</html>
+
+
