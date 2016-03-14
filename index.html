@@ -24,6 +24,11 @@
 
 <body>
   <canvas id="renderCanvas"></canvas>
+   <script src="socket.io/socket.io.js"></script>
+        <script src="event-emitter.js"></script>
+        <script src="whiteboard.js"></script>
+        <script src="app.js"></script>
+
      <script src="//code.jquery.com/jquery-1.12.0.min.js"></script> 
   <script>
     var canvas = document.getElementById("renderCanvas");
@@ -53,31 +58,31 @@
 });
 
 
-  setTimeout(function (){
-    for(var i = 0; i<10; i++) {
-          var e = new Event("keydown");
-  //e.key="";    // just enter the char you want to send 
-  e.keyCode=38;
-  e.which=e.keyCode;
-  e.altKey=false;
-  e.ctrlKey=true;
-  e.shiftKey=false;
-  e.metaKey=false;
-  e.bubbles=true;
-  window.dispatchEvent(e);
-  console.log(e)
-  }}, 5000)
+ //  setTimeout(function (){
+ //    for(var i = 0; i<10; i++) {
+ //          var e = new Event("keydown");
+ //  //e.key="";    // just enter the char you want to send 
+ //  e.keyCode=38;
+ //  e.which=e.keyCode;
+ //  e.altKey=false;
+ //  e.ctrlKey=true;
+ //  e.shiftKey=false;
+ //  e.metaKey=false;
+ //  e.bubbles=true;
+ //  window.dispatchEvent(e);
+ //  console.log(e)
+ //  }}, 5000)
 
- window.addEventListener('devicemotion', function (e) {
-        // setTimeout(function(){
-        //     debugger;
-        // }, 5000)
+ // window.addEventListener('devicemotion', function (e) {
+ //        // setTimeout(function(){
+ //        //     debugger;
+ //        // }, 5000)
 
-        if(e.acceleration.x || e.acceleration.y || e.acceleration.z) {
-           whiteboard.emit('keydown', e.acceleration.y); 
-           //console.log(e);
-        }
-    });
+ //        if(e.acceleration.x || e.acceleration.y || e.acceleration.z) {
+ //           whiteboard.emit('keydown', e.acceleration.y); 
+ //           //console.log(e);
+ //        }
+ //    });
 
 
 
