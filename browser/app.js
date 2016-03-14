@@ -1,7 +1,6 @@
 // we need this socket object to send messages to our server 
 var socket = io(window.location.origin); 
-var moves = 0;
-  var lastMoveTime = 0;
+var stepSound = new Audio("step.wav");
 
 
 //   var mover = 0;
@@ -34,8 +33,7 @@ socket.on('connect', function(){
 
   //if(data && Math.abs(data) > 4 && (currentTime-lastMoveTime)>5000)
   if(data && Math.abs(data) > 3) {
-    //console.log(currentTime - lastMoveTime);
-    //lastMoveTime = currentTime;
+
     console.log(data);
     var e = new Event("keydown");
   e.keyCode=38;
@@ -49,13 +47,23 @@ socket.on('connect', function(){
   
   var timeout;
   if (data < 4){
+    stepSound.play()
     timeout = 400;
+
   }
   else if (data < 8){
+    stepSound.play()
+    stepSound.play()
+    stepSound.play()
     timeout = 1000;
   }
   else {
     timeout = 2000;
+        stepSound.play()
+    stepSound.play()
+    stepSound.play()
+    stepSound.play()
+    stepSound.play()
   }
 console.log(data);
 
