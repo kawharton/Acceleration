@@ -33,7 +33,7 @@ socket.on('connect', function(){
   //e.key="";    // just enter the char you want to send 
 
   //if(data && Math.abs(data) > 4 && (currentTime-lastMoveTime)>5000)
-  if(data && Math.abs(data) > 4) {
+  if(data && Math.abs(data) > 3) {
     //console.log(currentTime - lastMoveTime);
     //lastMoveTime = currentTime;
     console.log(data);
@@ -48,14 +48,14 @@ socket.on('connect', function(){
   window.dispatchEvent(e);
   
   var timeout;
-  if (data < 10){
-    timeout = 250;
+  if (data < 4){
+    timeout = 400;
   }
-  else if (data < 20){
-    timeout = 600;
+  else if (data < 8){
+    timeout = 1000;
   }
   else {
-    timeout = 1000;
+    timeout = 2000;
   }
 console.log(data);
 
