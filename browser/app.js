@@ -27,14 +27,15 @@ socket.on('connect', function(){
   socket.on('otherDraw', function(data){
   	//console.log(e.acceleration.y);
     
-  	// if(data) move(Math.abs(data));
+  	//if(data) move(Math.abs(data));
             var d = new Date();
             var currentTime = d.getTime();
   //e.key="";    // just enter the char you want to send 
 
-  if(data && Math.abs(data) > 4 && (currentTime-lastMoveTime)>5000) {
-    console.log(currentTime - lastMoveTime);
-    lastMoveTime = currentTime;
+  //if(data && Math.abs(data) > 4 && (currentTime-lastMoveTime)>5000)
+  if(data && Math.abs(data) > 4) {
+    //console.log(currentTime - lastMoveTime);
+    //lastMoveTime = currentTime;
     console.log(data);
     var e = new Event("keydown");
   e.keyCode=38;
@@ -45,11 +46,19 @@ socket.on('connect', function(){
   e.metaKey=false;
 
   window.dispatchEvent(e);
-  // e.preventDefault();
-  // e.stopImmediatePropagation();
   
-  // moves++;
-  // console.log(moves);
+  var timeout;
+  if (data < 10){
+    timeout = 250;
+  }
+  else if (data < 20){
+    timeout = 600;
+  }
+  else {
+    timeout = 1000;
+  }
+console.log(data);
+
 setTimeout(function(){
      var e = new Event("keyup");
   e.keyCode=38;
@@ -60,7 +69,7 @@ setTimeout(function(){
   e.metaKey=false;
 
   window.dispatchEvent(e);
-}, 250)
+}, timeout);
 
   }
  

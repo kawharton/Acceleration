@@ -54,11 +54,17 @@ window.whiteboard = new window.EventEmitter();
 
     window.addEventListener('devicemotion', function (e) {
         // setTimeout(function(){
-            
+
         // }, 5000)
 
         if(e.acceleration.x || e.acceleration.y || e.acceleration.z) {
-           whiteboard.emit('draw', e.acceleration.y); 
+           ax = e.acceleration.x;
+           ay = e.acceleration.y;
+           az = e.acceleration.z;
+
+           a = Math.sqrt(ax*ax + ay * ay + az * az);
+
+           whiteboard.emit('draw', a); 
            //console.log(e);
         }
     });
