@@ -1,9 +1,9 @@
 {
-  "name": "World-Wide-Whiteboard",
+  "name": "Acceleration",
   "version": "1.0.0",
-  "description": "socket.io workshop @ Fullstack Academy",
+  "description": "Interactive application that allows movement through a 3D scene on a computer using the acceleration data of a smart phone",
   "main": "index.js",
-  "author": "instructors@fullstackacademy.com",
+  "author": "Khadija Wharton",
   "scripts": {
     "start": "nodemon server.js"
   },

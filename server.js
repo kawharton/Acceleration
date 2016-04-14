@@ -44,16 +44,13 @@ io.on('connection', function(socket){
     // the draw data to the server 
     // broadcasting means sending a message to everyone else except for the 
     // the socket that starts it 
-    socket.broadcast.emit('otherDraw',e); 
+    socket.broadcast.emit('otherDraw', e); 
   }); 
-
-
 })
 
 app.use(express.static(path.join(__dirname, 'browser')));
 
 app.get('/', function (req, res) {
-    console.log('a req')
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
