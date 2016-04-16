@@ -6,7 +6,6 @@ var server = http.createServer();
 var express = require('express');
 var app = express();
 
-
 var socketio = require('socket.io'); 
 
 server.on('request', app);
@@ -84,14 +83,12 @@ ROOMS:
 
 app.use(express.static(path.join(__dirname, 'browser')));
 
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.use(express.static(path.join(__dirname, 'Espilit')));
 app.get('/espilit', function (req, res) {
-  console.log(__dirname);
+  console.log(path.join(__dirname, 'espilit.html'));
     res.sendFile(path.join(__dirname, 'espilit.html'));
 });
 

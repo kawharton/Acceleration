@@ -1,6 +1,6 @@
 // we need this socket object to send messages to our server 
 var socket = io(window.location.origin); 
-var stepSound = new Audio("step.wav");
+var stepSound = new Audio("../step.wav");
 
 socket.on('connect', function(){
 
