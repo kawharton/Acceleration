@@ -17,3 +17,7 @@
        height: 100%;
        touch-action: none;
      }
+    
+    #map {
+      height: 100%;
+    }

@@ -88,8 +88,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/espilit', function (req, res) {
-  console.log(path.join(__dirname, 'espilit.html'));
-    res.sendFile(path.join(__dirname, 'espilit.html'));
+  res.sendFile(path.join(__dirname, 'espilit.html'));
+});
+
+app.get('/map', function (req, res) {
+  res.sendFile(path.join(__dirname, 'gmaps.html'));
 });
 
 server.listen(1337, function () {
