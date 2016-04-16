@@ -63,4 +63,31 @@ socket.on('connect', function(){
   })
 })
 
+//room
+// var socket = io(location.origin);
+
+// socket.on('connect', function () {
+
+//     var room = 'room';
+
+//     socket.emit('wantToJoinRoomPlox', room);
+
+//     virtualScene.on('draw', function (e){
+//     socket.emit('newDraw', e);
+//   })
+
+
+
+//     // socket.on('drawHistory', function (drawHistory) {
+//     //     drawHistory.forEach(function (draw) {
+//     //         virtualScene.draw(draw.start, draw.end, draw.color);
+//     //     });
+//     // });
+
+//     // socket.on('someoneElseDrew', function (start, end, color) {
+//     //     virtualScene.draw(start, end, color);
+//     // });
+
+// });
+
 

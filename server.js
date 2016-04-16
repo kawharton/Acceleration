@@ -48,12 +48,52 @@ io.on('connection', function(socket){
   }); 
 })
 
+/*
+ROOMS: 
+*/
+
+
+// io.on('connection', function (socket) {
+
+//     // scope issues 
+//     var room = null;
+
+//     // listens to 37 emit 
+//     socket.on('wantToJoinRoomPlox', function (roomName) {
+//         room = roomName;
+//         socket.join(roomName);
+
+
+//         // if (!drawHistory[roomName]) {
+//         //     drawHistory[roomName] = [];
+//         // }
+
+//         // console.log('drawhistory: ', drawHistory)
+//         //socket.emit('drawHistory', drawHistory[roomName]);
+//     });
+
+//     socket.on('newDraw', function (e){
+  
+//         // data
+//         //console.log('new draw', start, end, color)
+//         //drawHistory[room].push({ start: start, end: end, color: color });
+//         socket.broadcast.to(room).emit('newDraw', e);
+//     });
+
+// });
+
 app.use(express.static(path.join(__dirname, 'browser')));
 
+
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.use(express.static(path.join(__dirname, 'Espilit')));
+app.get('/espilit', function (req, res) {
+  console.log(__dirname);
+    res.sendFile(path.join(__dirname, 'espilit.html'));
+});
 
 server.listen(1337, function () {
     console.log('The server is listening on port 1337!');

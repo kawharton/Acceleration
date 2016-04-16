@@ -7,7 +7,7 @@ window.virtualScene = new window.EventEmitter();
            ay = e.acceleration.y;
            az = e.acceleration.z;
 
-           a = Math.sqrt(ax*ax + ay * ay + az * az);
+           a = Math.sqrt(ax * ax + ay * ay + az * az);
 
            virtualScene.emit('draw', a); 
         }
