@@ -82,6 +82,7 @@ ROOMS:
 // });
 
 app.use(express.static(path.join(__dirname, 'browser')));
+app.use('/*', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
