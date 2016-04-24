@@ -14,12 +14,12 @@ server.on('request', app);
 // creates a new connection server for web sockets and integrates
 // it into our HTTP server 
 // this needs to be below the server.on('request', app) so that our 
-// express app takes precedence over our socekt server for typical 
+// express app takes precedence over our socket server for typical 
 // HTTP requests 
 var io = socketio(server);
 
 
-// // use socket server as an event emitter in order to listen for new connctions
+// use socket server as an event emitter in order to listen for new connctions
 io.on('connection', function(socket){
 
 
@@ -82,7 +82,6 @@ ROOMS:
 // });
 
 app.use(express.static(path.join(__dirname, 'browser')));
-app.use('/*', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
