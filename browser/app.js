@@ -2,8 +2,6 @@
 var socket = io(window.location.origin); 
 var stepSound = new Audio("../step.wav");
 
-document.getElementById('map').focus();
-
 socket.on('connect', function(){
 
   console.log('I have made a persistent two-way connection to the server!'); 
@@ -44,16 +42,11 @@ socket.on('connect', function(){
         stepSound.play()
         stepSound.play()
       }
-      //console.log(data);
 
       setTimeout(function(){
        var e = new Event("keyup");
        e.keyCode=38;
        e.which=e.keyCode;
-       e.altKey=false;
-       e.ctrlKey=true;
-       e.shiftKey=false;
-       e.metaKey=false;
 
        window.dispatchEvent(e);
      }, timeout);

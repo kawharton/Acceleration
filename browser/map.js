@@ -32,8 +32,9 @@ function initPano() {
         addressControlOptions: {
           position: google.maps.ControlPosition.BOTTOM_CENTER
         },
-        linksControl: false,
-        panControl: false,
-        enableCloseButton: false
+        //linksControl: false,
+        //streetViewControl: true,
+        panControl: true
+        //enableCloseButton: false
   });
 }
